@@ -50,16 +50,15 @@ SNLocalizeForTableName(key, @"SNImagePickerString")
     imagePickerController.maxCountOfSelection = 9;
     imagePickerController.cameraShowType = SNImagePickerCameraShowAtLast;
     imagePickerController.mediaType      = SNImagePickerMediaTypeAny;
-//    [self presentViewController:imagePickerController animated:true completion:nil];
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 150, 60, 60)];
-    [imagePickerController.view addSubview:button];
-    button.backgroundColor = [UIColor redColor];
-    [button addTarget:self action:@selector(go:) forControlEvents:(UIControlEventTouchUpInside)];
-    
-    
-    menu = [SNMenuController contentViewController:imagePickerController menuViewController:[AssetImageViewController new]];
-    
-    [self presentViewController:menu animated:true completion:nil];
+    [self presentViewController:imagePickerController animated:true completion:nil];
+//    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 150, 60, 60)];
+//    [imagePickerController.view addSubview:button];
+//    button.backgroundColor = [UIColor redColor];
+//    [button addTarget:self action:@selector(go:) forControlEvents:(UIControlEventTouchUpInside)];
+//    
+//    menu = [SNMenuController contentViewController:imagePickerController menuViewController:[AssetImageViewController new]];
+//    
+//    [self presentViewController:menu animated:true completion:nil];
 
 }
 

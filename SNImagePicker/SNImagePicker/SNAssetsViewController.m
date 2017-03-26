@@ -48,11 +48,10 @@ static NSString * const reuseIdentifier = @"SNAssetsCell";
     [self.collectionView registerClass:[SNAssetsCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView setAllowsMultipleSelection:self.imagePickerController.allowsMultipleSelection];
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
-    self.collectionView.backgroundColor = [UIColor orangeColor];
-    CGRect rect = self.collectionView.frame ;
-    rect.size.height = rect.size.height-50;
-    self.collectionView.frame = rect;
-    [self.view addSubview:self.bottomController];
+//    CGRect rect = self.collectionView.frame ;
+//    rect.size.height = rect.size.height-50;
+//    self.collectionView.frame = rect;
+//    [self.view addSubview:self.bottomController];
 
     
 }

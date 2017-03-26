@@ -12,3 +12,5 @@
 "photo.authorization" = "缺少访问相册的权限";
 
 "photo.ok" = "确认";
+
+"photo.preview" = "预览";
