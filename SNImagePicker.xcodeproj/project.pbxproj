@@ -32,8 +32,6 @@
 		FB93B0441E66A22F004CAB03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB93B0421E66A22F004CAB03 /* LaunchScreen.storyboard */; };
 		FB93B07A1E66A3F8004CAB03 /* AssetImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB93B0751E66A3F8004CAB03 /* AssetImageViewController.m */; };
 		FB93B07B1E66A3F8004CAB03 /* AssetImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB93B0771E66A3F8004CAB03 /* AssetImageCell.m */; };
-		FB93B07C1E66A3F8004CAB03 /* MMVideoPreviewPlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB93B0781E66A3F8004CAB03 /* MMVideoPreviewPlay@2x.png */; };
-		FB93B07D1E66A3F8004CAB03 /* MMVideoPreviewPlayHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB93B0791E66A3F8004CAB03 /* MMVideoPreviewPlayHL@2x.png */; };
 		FB93B0801E66A56E004CAB03 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB93B07F1E66A56E004CAB03 /* Photos.framework */; };
 		FBE02EBD1E835F78001E3F81 /* icon_personal_ac_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE02EBC1E835F78001E3F81 /* icon_personal_ac_selected@3x.png */; };
 		FBE02EBF1E835F87001E3F81 /* icon_personal_ac@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE02EBE1E835F87001E3F81 /* icon_personal_ac@3x.png */; };
@@ -90,8 +88,6 @@
 		FB93B0751E66A3F8004CAB03 /* AssetImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetImageViewController.m; sourceTree = "<group>"; };
 		FB93B0761E66A3F8004CAB03 /* AssetImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetImageCell.h; sourceTree = "<group>"; };
 		FB93B0771E66A3F8004CAB03 /* AssetImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetImageCell.m; sourceTree = "<group>"; };
-		FB93B0781E66A3F8004CAB03 /* MMVideoPreviewPlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MMVideoPreviewPlay@2x.png"; sourceTree = "<group>"; };
-		FB93B0791E66A3F8004CAB03 /* MMVideoPreviewPlayHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MMVideoPreviewPlayHL@2x.png"; sourceTree = "<group>"; };
 		FB93B07F1E66A56E004CAB03 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		FBE02EBC1E835F78001E3F81 /* icon_personal_ac_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_personal_ac_selected@3x.png"; sourceTree = "<group>"; };
 		FBE02EBE1E835F87001E3F81 /* icon_personal_ac@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_personal_ac@3x.png"; sourceTree = "<group>"; };
@@ -182,8 +178,6 @@
 				FB93B0771E66A3F8004CAB03 /* AssetImageCell.m */,
 				FBE02EBC1E835F78001E3F81 /* icon_personal_ac_selected@3x.png */,
 				FBE02EBE1E835F87001E3F81 /* icon_personal_ac@3x.png */,
-				FB93B0781E66A3F8004CAB03 /* MMVideoPreviewPlay@2x.png */,
-				FB93B0791E66A3F8004CAB03 /* MMVideoPreviewPlayHL@2x.png */,
 				FB93B03D1E66A22F004CAB03 /* Main.storyboard */,
 				FB0334071E812C560092A2EA /* SNTabBar.h */,
 				FB0334081E812C560092A2EA /* SNTabBar.m */,
@@ -274,12 +268,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB93B0441E66A22F004CAB03 /* LaunchScreen.storyboard in Resources */,
-				FB93B07C1E66A3F8004CAB03 /* MMVideoPreviewPlay@2x.png in Resources */,
 				FB93B0411E66A22F004CAB03 /* Assets.xcassets in Resources */,
 				FBE02EBF1E835F87001E3F81 /* icon_personal_ac@3x.png in Resources */,
 				2A5D36AE1E879F5200AAC615 /* SNImagePickerString.strings in Resources */,
 				FBE02EBD1E835F78001E3F81 /* icon_personal_ac_selected@3x.png in Resources */,
-				FB93B07D1E66A3F8004CAB03 /* MMVideoPreviewPlayHL@2x.png in Resources */,
 				FB93B03F1E66A22F004CAB03 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
