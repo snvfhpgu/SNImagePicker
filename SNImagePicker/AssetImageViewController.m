@@ -70,9 +70,6 @@
 
     AssetImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"AssetImageCell" forIndexPath:indexPath];
 
-    if (!cell) {
-        cell = [[AssetImageCell alloc]init];
-    }
     PHAsset *asset = _assets[indexPath.row];
     cell.playBtn.hidden = !(asset.mediaType == PHAssetMediaTypeVideo);
     [[PHImageManager defaultManager]requestImageDataForAsset:asset options:[PHImageRequestOptions new] resultHandler:^(NSData *imageData, NSString * dataUTI, UIImageOrientation orientation, NSDictionary * info) {
@@ -82,7 +79,7 @@
     }];
     [cell setPalyBlock:^(AssetImageCell *theCell) {
         NSIndexPath *indexPath0 = [collectionView indexPathForCell:theCell];
-        [[PHImageManager defaultManager]requestPlayerItemForVideo:self->_assets[indexPath0.row] options:[PHVideoRequestOptions new] resultHandler:^(AVPlayerItem * playerItem, NSDictionary *info) {
+        [[PHImageManager defaultManager]requestPlayerItemForVideo:self.assets[indexPath0.row] options:[PHVideoRequestOptions new] resultHandler:^(AVPlayerItem * playerItem, NSDictionary *info) {
             if (playerItem) {
                 AVPlayerViewController *playerVC = [[AVPlayerViewController alloc]init];
                 playerVC.player = [AVPlayer playerWithPlayerItem:playerItem];

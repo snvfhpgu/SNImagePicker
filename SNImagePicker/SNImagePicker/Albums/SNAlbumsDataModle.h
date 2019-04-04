@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
+@class PHFetchResult;
 @interface SNAlbumsDataModle : NSObject
-@property (strong, nonatomic) PHFetchResult *fetchResult;
-@property (strong, nonatomic) NSString *title;
+@property (nonatomic, copy) PHFetchResult *fetchResult;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, strong) UIImage *image;
 
 @end

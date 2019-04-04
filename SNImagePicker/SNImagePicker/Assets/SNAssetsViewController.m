@@ -236,8 +236,8 @@ static NSString * const reuseIdentifier = @"SNAssetsCell";
                     
                     if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive) {
                         [self.collectionView insertItemsAtIndexPaths:indexPaths];
-                        [self collectionView:self.collectionView didSelectItemAtIndexPath:indexPaths[0]];
-                        
+//                        [self collectionView:self.collectionView didSelectItemAtIndexPath:indexPaths[0]];
+                        [self.collectionView selectItemAtIndexPath:indexPaths[0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
                         UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPaths[0]];
                         cell.selected = self.imagePickerController.allowsMultipleSelection;
                         
@@ -371,6 +371,7 @@ static NSString * const reuseIdentifier = @"SNAssetsCell";
 #pragma mark - set
 -(void)setDataSource:(PHFetchResult *)dataSource {
     _dataSource = [dataSource copy];
+    [self.imagePickerController.selectAssets removeAllObjects];
     [self.collectionView reloadData];
 }
 

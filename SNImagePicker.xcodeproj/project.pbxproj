@@ -41,8 +41,8 @@
 
 /* Begin PBXFileReference section */
 		2A5D36891E879F5200AAC615 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SNImagePickerString.strings; sourceTree = "<group>"; };
-		2A5D368A1E879F5200AAC615 /* SNAccessoryIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNAccessoryIndicator.h; sourceTree = "<group>"; };
-		2A5D368B1E879F5200AAC615 /* SNAccessoryIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNAccessoryIndicator.m; sourceTree = "<group>"; };
+		2A5D368A1E879F5200AAC615 /* SNAccessoryIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNAccessoryIndicator.h; path = ../SNAccessoryIndicator.h; sourceTree = "<group>"; };
+		2A5D368B1E879F5200AAC615 /* SNAccessoryIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNAccessoryIndicator.m; path = ../SNAccessoryIndicator.m; sourceTree = "<group>"; };
 		2A5D368C1E879F5200AAC615 /* SNAlbumsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNAlbumsCell.h; sourceTree = "<group>"; };
 		2A5D368D1E879F5200AAC615 /* SNAlbumsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNAlbumsCell.m; sourceTree = "<group>"; };
 		2A5D368E1E879F5200AAC615 /* SNAlbumsDataModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNAlbumsDataModle.h; sourceTree = "<group>"; };
@@ -55,8 +55,8 @@
 		2A5D36951E879F5200AAC615 /* SNAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNAssetsViewController.m; sourceTree = "<group>"; };
 		2A5D36961E879F5200AAC615 /* SNCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNCameraView.h; sourceTree = "<group>"; };
 		2A5D36971E879F5200AAC615 /* SNCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNCameraView.m; sourceTree = "<group>"; };
-		2A5D36981E879F5200AAC615 /* SNCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNCheckmarkView.h; sourceTree = "<group>"; };
-		2A5D36991E879F5200AAC615 /* SNCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNCheckmarkView.m; sourceTree = "<group>"; };
+		2A5D36981E879F5200AAC615 /* SNCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNCheckmarkView.h; path = ../SNCheckmarkView.h; sourceTree = "<group>"; };
+		2A5D36991E879F5200AAC615 /* SNCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNCheckmarkView.m; path = ../SNCheckmarkView.m; sourceTree = "<group>"; };
 		2A5D369A1E879F5200AAC615 /* SNImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNImagePickerController.h; sourceTree = "<group>"; };
 		2A5D369B1E879F5200AAC615 /* SNImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNImagePickerController.m; sourceTree = "<group>"; };
 		2A5D369C1E879F5200AAC615 /* SNLocalizationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNLocalizationSystem.h; sourceTree = "<group>"; };
@@ -113,39 +113,79 @@
 		2A5D36851E879F5200AAC615 /* SNImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				2A5D36881E879F5200AAC615 /* SNImagePickerString.strings */,
-				2A5D368A1E879F5200AAC615 /* SNAccessoryIndicator.h */,
-				2A5D368B1E879F5200AAC615 /* SNAccessoryIndicator.m */,
+				2A5E174E2255E177007D6024 /* Language */,
+				2A5E174D2255E0F0007D6024 /* Category */,
+				2A5E174C2255E0AD007D6024 /* DrawView */,
+				2A5E174B2255E080007D6024 /* Assets */,
+				2A5E174A2255E05E007D6024 /* Albums */,
+				2A5D369A1E879F5200AAC615 /* SNImagePickerController.h */,
+				2A5D369B1E879F5200AAC615 /* SNImagePickerController.m */,
+				2A5D369E1E879F5200AAC615 /* SNNavigationController.h */,
+				2A5D369F1E879F5200AAC615 /* SNNavigationController.m */,
+			);
+			path = SNImagePicker;
+			sourceTree = "<group>";
+		};
+		2A5E174A2255E05E007D6024 /* Albums */ = {
+			isa = PBXGroup;
+			children = (
 				2A5D368C1E879F5200AAC615 /* SNAlbumsCell.h */,
 				2A5D368D1E879F5200AAC615 /* SNAlbumsCell.m */,
 				2A5D368E1E879F5200AAC615 /* SNAlbumsDataModle.h */,
 				2A5D368F1E879F5200AAC615 /* SNAlbumsDataModle.m */,
 				2A5D36901E879F5200AAC615 /* SNAlbumsViewController.h */,
 				2A5D36911E879F5200AAC615 /* SNAlbumsViewController.m */,
+			);
+			path = Albums;
+			sourceTree = "<group>";
+		};
+		2A5E174B2255E080007D6024 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
 				2A5D36921E879F5200AAC615 /* SNAssetsCell.h */,
 				2A5D36931E879F5200AAC615 /* SNAssetsCell.m */,
 				2A5D36941E879F5200AAC615 /* SNAssetsViewController.h */,
 				2A5D36951E879F5200AAC615 /* SNAssetsViewController.m */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2A5E174C2255E0AD007D6024 /* DrawView */ = {
+			isa = PBXGroup;
+			children = (
+				2A5D368A1E879F5200AAC615 /* SNAccessoryIndicator.h */,
+				2A5D368B1E879F5200AAC615 /* SNAccessoryIndicator.m */,
 				2A5D36961E879F5200AAC615 /* SNCameraView.h */,
 				2A5D36971E879F5200AAC615 /* SNCameraView.m */,
 				2A5D36981E879F5200AAC615 /* SNCheckmarkView.h */,
 				2A5D36991E879F5200AAC615 /* SNCheckmarkView.m */,
-				2A5D369A1E879F5200AAC615 /* SNImagePickerController.h */,
-				2A5D369B1E879F5200AAC615 /* SNImagePickerController.m */,
-				2A5D369C1E879F5200AAC615 /* SNLocalizationSystem.h */,
-				2A5D369D1E879F5200AAC615 /* SNLocalizationSystem.m */,
-				2A5D369E1E879F5200AAC615 /* SNNavigationController.h */,
-				2A5D369F1E879F5200AAC615 /* SNNavigationController.m */,
 				2A5D36A01E879F5200AAC615 /* SNVideoIconView.h */,
 				2A5D36A11E879F5200AAC615 /* SNVideoIconView.m */,
 				2A5D36A21E879F5200AAC615 /* SNVideoIndicatorView.h */,
 				2A5D36A31E879F5200AAC615 /* SNVideoIndicatorView.m */,
+			);
+			path = DrawView;
+			sourceTree = "<group>";
+		};
+		2A5E174D2255E0F0007D6024 /* Category */ = {
+			isa = PBXGroup;
+			children = (
 				2A5D36A41E879F5200AAC615 /* SNView+Frame.h */,
 				2A5D36A51E879F5200AAC615 /* SNView+Frame.m */,
 				2A5E174722559EFF007D6024 /* UIViewController+Base.h */,
 				2A5E174822559EFF007D6024 /* UIViewController+Base.m */,
 			);
-			path = SNImagePicker;
+			path = Category;
+			sourceTree = "<group>";
+		};
+		2A5E174E2255E177007D6024 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				2A5D36881E879F5200AAC615 /* SNImagePickerString.strings */,
+				2A5D369C1E879F5200AAC615 /* SNLocalizationSystem.h */,
+				2A5D369D1E879F5200AAC615 /* SNLocalizationSystem.m */,
+			);
+			path = Language;
 			sourceTree = "<group>";
 		};
 		FB93B0281E66A22F004CAB03 = {

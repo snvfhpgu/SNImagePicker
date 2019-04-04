@@ -13,8 +13,6 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-
-    // Set default values
     [self defaultSet];
 
 }
@@ -23,7 +21,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
         [self defaultSet];
     }
     return self;

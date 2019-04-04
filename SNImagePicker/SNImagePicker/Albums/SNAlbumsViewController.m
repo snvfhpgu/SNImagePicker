@@ -31,7 +31,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willChangeStatusBarOrientationNotification:) name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
 
     self.navigationItem.leftBarButtonItem = self.cancelBtn;
-    [self.tableView setSeparatorStyle:(UITableViewCellSeparatorStyleNone)];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView registerClass:[SNAlbumsCell class] forCellReuseIdentifier:@"SNAlbumsCell"];
 
 }
@@ -39,7 +39,6 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self checkPHAuthorizationStatus];
-
 }
 
 -(void)dealloc {
@@ -63,10 +62,9 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     SNAlbumsDataModle *modle = _dataSource[indexPath.row];
     PHFetchResult *fetchResult = modle.fetchResult;
     PHImageManager *imageManager = [PHImageManager defaultManager];
-    if (fetchResult.count>0) {
+    if (fetchResult.count > 0) {
         [imageManager requestImageForAsset:[fetchResult lastObject]
-                                targetSize:CGSizeScale(cell.albumsImageView.frame.size,
-                                                       [[UIScreen mainScreen] scale])
+                                targetSize:CGSizeScale(cell.albumsImageView.frame.size,[[UIScreen mainScreen] scale])
                                contentMode:PHImageContentModeAspectFill
                                    options:nil
                              resultHandler:^(UIImage *result, NSDictionary *info) {
@@ -93,11 +91,8 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SNAlbumsDataModle *modle = _dataSource[indexPath.row];
-    SNAssetsViewController *assetsViewController = self.imagePickerController.theAssetsViewController;
-    assetsViewController.dataSource = modle.fetchResult;
-    assetsViewController.title = modle.title;
-    [self.navigationController pushViewController:assetsViewController animated:true];
+    SNAlbumsDataModle *model = _dataSource[indexPath.row];
+    [self.imagePickerController pushToAssetsViewControllerWithTitle:model.title dataSource:model.fetchResult];
 }
 
 #pragma mark - NSNotification Action
@@ -107,14 +102,13 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 
 #pragma mark - custom Action
 -(void)getAlbumsDataSource {
-    
 
     PHFetchResult *smartFetchResult = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
     PHFetchResult *userFetchResult = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
     
    
     PHFetchOptions *options = self.imagePickerController.fetchOptions;
-    NSMutableArray *assetCollections  = [@[]mutableCopy];
+    NSMutableArray *assetCollections  = [@[] mutableCopy];
     for (PHFetchResult *fetchResult in @[smartFetchResult,userFetchResult]) {
 
         [fetchResult enumerateObjectsUsingBlock:^(PHAssetCollection *assetCollection, NSUInteger index, BOOL *stop) {

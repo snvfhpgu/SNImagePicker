@@ -40,13 +40,9 @@ typedef NS_ENUM(NSUInteger, SNImagePickerCameraShowType) {
 
 @interface SNImagePickerController : UISplitViewController
 
-@property (nonatomic, strong) SNNavigationController *theNavigationController;
-@property (nonatomic, strong) SNAlbumsViewController *theAlbumsViewController;
-@property (nonatomic, strong) SNAssetsViewController *theAssetsViewController;
-
 
 @property (nonatomic, assign) SNImagePickerMediaType mediaType;
-@property (nonatomic, assign) id<SNImagePickerControllerDelegate> pickerDelegate;
+@property (nonatomic, weak) id<SNImagePickerControllerDelegate> pickerDelegate;
 @property (nonatomic, strong) NSMutableOrderedSet<PHAsset*> *selectAssets;
 
 @property (nonatomic, assign) NSInteger countOfColumnsInPortrait;
@@ -61,6 +57,7 @@ typedef NS_ENUM(NSUInteger, SNImagePickerCameraShowType) {
 @property (nonatomic, assign) SNImagePickerCameraShowType cameraShowType; // default is SNImagePickerCameraShowAtLast
 @property (nonatomic, strong, readonly) PHFetchOptions *fetchOptions;
 
+- (void)pushToAssetsViewControllerWithTitle:(NSString *)title dataSource:(PHFetchResult *)dataSource;
 
 @end
 

@@ -10,6 +10,6 @@
 @class SNImagePickerController;
 
 @interface SNAlbumsViewController : UITableViewController
-@property (nonatomic, strong) SNImagePickerController *imagePickerController;
+@property (nonatomic, weak) SNImagePickerController *imagePickerController;
 
 @end

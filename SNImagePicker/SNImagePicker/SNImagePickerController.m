@@ -15,6 +15,11 @@
 
 @interface SNImagePickerController ()
 
+@property (nonatomic, strong) SNNavigationController *theNavigationController;
+@property (nonatomic, strong) SNAlbumsViewController *theAlbumsViewController;
+@property (nonatomic, strong) SNAssetsViewController *theAssetsViewController;
+
+
 @end
 
 @implementation SNImagePickerController
@@ -80,6 +85,12 @@
 
     }
     return _theNavigationController;
+}
+
+- (void)pushToAssetsViewControllerWithTitle:(NSString *)title dataSource:(PHFetchResult *)dataSource {
+    self.theAssetsViewController.dataSource = dataSource;
+    self.theAssetsViewController.title = title;
+    [self.theNavigationController pushViewController:self.theAssetsViewController animated:YES];
 }
 
 -(SNAlbumsViewController*)theAlbumsViewController {

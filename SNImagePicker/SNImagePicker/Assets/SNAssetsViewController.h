@@ -13,6 +13,6 @@
 
 @interface SNAssetsViewController : UICollectionViewController
 @property (nonatomic, copy) PHFetchResult *dataSource;
-@property (nonatomic, strong) SNImagePickerController *imagePickerController;
+@property (nonatomic, weak) SNImagePickerController *imagePickerController;
 
 @end
