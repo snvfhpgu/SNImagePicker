@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Photos/Photos.h>
-#import "SNImagePickerController.h"
+@class SNImagePickerController;
 
 @interface SNAlbumsViewController : UITableViewController
 @property (nonatomic, strong) SNImagePickerController *imagePickerController;

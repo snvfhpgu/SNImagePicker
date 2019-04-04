@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Photos/Photos.h>
-#import "SNImagePickerController.h"
+
+@class PHFetchResult;
+@class SNImagePickerController;
 
 @interface SNAssetsViewController : UICollectionViewController
-@property (nonatomic, strong) PHFetchResult *dataSource;
+@property (nonatomic, copy) PHFetchResult *dataSource;
 @property (nonatomic, strong) SNImagePickerController *imagePickerController;
 
 @end

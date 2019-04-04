@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
 @interface AssetImageViewController : UIViewController
-@property (nonatomic, strong) NSArray<PHAsset *> *assets;
+@property (nonatomic, copy) NSArray<PHAsset *> *assets;
 @property (nonatomic, assign) NSInteger index;
 
 @end

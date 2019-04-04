@@ -76,16 +76,14 @@
     if (!_cameraView) {
         UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
         SNCameraView *camera =  [[SNCameraView alloc]initWithFrame:self.bounds];
-
-        _cameraView = [[UIVisualEffectView alloc] initWithEffect:effect];
-        _cameraView.frame = self.bounds;
-
-        [_cameraView addSubview:camera];
+       UIVisualEffectView *cameraView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        [cameraView.contentView addSubview:camera];
+        _cameraView = cameraView;
     }
-    _cameraView.frame = self.bounds;
-    SNCameraView *camera = _cameraView.subviews[0];
+    UIVisualEffectView *cameraView = (UIVisualEffectView *)_cameraView;
+    SNCameraView *camera = cameraView.contentView.subviews[0];
     camera.frame = self.bounds;
-    camera.clipsToBounds = YES;
+    cameraView.frame = self.bounds;
     return _cameraView;
 }
 

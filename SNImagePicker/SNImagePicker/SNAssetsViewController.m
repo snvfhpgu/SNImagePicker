@@ -7,9 +7,11 @@
 //
 
 #import "SNAssetsViewController.h"
-#import "SNAssetsCell.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "SNAssetsCell.h"
 #import "SNView+Frame.h"
+#import "UIViewController+Base.h"
+#import "SNImagePickerController.h"
 
 @implementation NSIndexSet (indexPath)
 
@@ -24,15 +26,15 @@
 
 @end
 
-@interface SNAssetsViewController ()
-<
+@interface SNAssetsViewController ()<
 PHPhotoLibraryChangeObserver,
 UICollectionViewDelegateFlowLayout,
 UIImagePickerControllerDelegate,
-UINavigationControllerDelegate
->
+UINavigationControllerDelegate>
+
 @property (strong, nonatomic) UIBarButtonItem *doneBtn;
 @property (strong, nonatomic) UIView *bottomController;
+
 @end
 
 @implementation SNAssetsViewController
@@ -48,12 +50,7 @@ static NSString * const reuseIdentifier = @"SNAssetsCell";
     [self.collectionView registerClass:[SNAssetsCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView setAllowsMultipleSelection:self.imagePickerController.allowsMultipleSelection];
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
-//    CGRect rect = self.collectionView.frame ;
-//    rect.size.height = rect.size.height-50;
-//    self.collectionView.frame = rect;
-//    [self.view addSubview:self.bottomController];
 
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,7 +126,7 @@ static NSString * const reuseIdentifier = @"SNAssetsCell";
         if (showCamera) {
             [self goImagePickerController];
         }else {
-            PHAsset *asset = _dataSource[row];
+            PHAsset *asset = self.dataSource[row];
             NSMutableOrderedSet *selectAssets = self.imagePickerController.selectAssets;
             [selectAssets addObject:asset];
             if (!self.imagePickerController.allowsMultipleSelection) {
@@ -146,7 +143,7 @@ static NSString * const reuseIdentifier = @"SNAssetsCell";
     }
     [self returnCameraItem:indexPath.row finshBlock:^(NSInteger row, BOOL showCamera) {
         if (!showCamera) {
-            PHAsset *asset = _dataSource[row];
+            PHAsset *asset = self.dataSource[row];
             NSMutableOrderedSet *selectAssets = self.imagePickerController.selectAssets;
             [selectAssets removeObject:asset];
         }
@@ -225,35 +222,35 @@ static NSString * const reuseIdentifier = @"SNAssetsCell";
             self.dataSource = [changeDetails fetchResultAfterChanges];
             if (![changeDetails hasIncrementalChanges]||changeDetails.hasMoves) {
                 [self.collectionView reloadData];
-            }else {
-                [self.collectionView performBatchUpdates:^{
-                    NSIndexSet *removedIndexes = [changeDetails removedIndexes];
-                    if ([removedIndexes count]) {
-                        [self.collectionView deleteItemsAtIndexPaths:[removedIndexes sn_indexPathWithSection:0]];
-                    }
-                    
-                    NSIndexSet *insertedIndexes = [changeDetails insertedIndexes];
-                    if ([insertedIndexes count]) {
-                        NSArray<NSIndexPath *> *indexPaths = [insertedIndexes sn_indexPathWithSection:0];
-
-                        if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive) {
-                            [self.collectionView insertItemsAtIndexPaths:indexPaths];
-                            [self collectionView:self.collectionView didSelectItemAtIndexPath:indexPaths[0]];
-                            
-                            UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPaths[0]];
-                            cell.selected = self.imagePickerController.allowsMultipleSelection;
-                            
-                        }else {
-                            [self.collectionView insertItemsAtIndexPaths:indexPaths];
-                        }
-                    }
-                    
-                    NSIndexSet *changedIndexes = [changeDetails changedIndexes];
-                    if ([changedIndexes count]) {
-                        [self.collectionView reloadItemsAtIndexPaths:[changedIndexes sn_indexPathWithSection:0]];
-                    }
-                } completion:nil];
+                return ;
             }
+            [self.collectionView performBatchUpdates:^{
+                NSIndexSet *removedIndexes = [changeDetails removedIndexes];
+                if ([removedIndexes count]) {
+                    [self.collectionView deleteItemsAtIndexPaths:[removedIndexes sn_indexPathWithSection:0]];
+                }
+                
+                NSIndexSet *insertedIndexes = [changeDetails insertedIndexes];
+                if ([insertedIndexes count]) {
+                    NSArray<NSIndexPath *> *indexPaths = [insertedIndexes sn_indexPathWithSection:0];
+                    
+                    if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive) {
+                        [self.collectionView insertItemsAtIndexPaths:indexPaths];
+                        [self collectionView:self.collectionView didSelectItemAtIndexPath:indexPaths[0]];
+                        
+                        UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPaths[0]];
+                        cell.selected = self.imagePickerController.allowsMultipleSelection;
+                        
+                    }else {
+                        [self.collectionView insertItemsAtIndexPaths:indexPaths];
+                    }
+                }
+                
+                NSIndexSet *changedIndexes = [changeDetails changedIndexes];
+                if ([changedIndexes count]) {
+                    [self.collectionView reloadItemsAtIndexPaths:[changedIndexes sn_indexPathWithSection:0]];
+                }
+            } completion:nil];
         }
     });
 }
@@ -331,18 +328,10 @@ static NSString * const reuseIdentifier = @"SNAssetsCell";
 -(void)doneBtn:(id)sender {
     SNImagePickerController *picker = self.imagePickerController;
     if (picker.selectAssets.count< picker.minCountOfSelection) {
-//        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"SNImagePickerString" ofType:@"string"];
-//        
-//        NSBundle *bundle = [[NSBundle alloc]initWithPath:bundlePath];
         NSString *message = LocalizeString(@"assets.done");
         NSString *cancel = LocalizeString(@"photo.ok");
         message = [NSString stringWithFormat:message,picker.minCountOfSelection];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil
-                                                       message:message
-                                                      delegate:nil
-                                             cancelButtonTitle:cancel
-                                             otherButtonTitles:nil];
-        [alert show];
+        [self showAlertWithMessage:message cancelButtonTitle:cancel];
         return;
     }
    
@@ -358,7 +347,7 @@ static NSString * const reuseIdentifier = @"SNAssetsCell";
 #pragma mark - get
 -(UIBarButtonItem *)doneBtn {
     SNImagePickerController *picker = self.imagePickerController;
-    if (!_doneBtn&&picker.allowsMultipleSelection) {
+    if (!_doneBtn && picker.allowsMultipleSelection) {
         _doneBtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:(UIBarButtonSystemItemDone) target:self action:@selector(doneBtn:)];
     }
     return _doneBtn;
@@ -381,7 +370,7 @@ static NSString * const reuseIdentifier = @"SNAssetsCell";
 
 #pragma mark - set
 -(void)setDataSource:(PHFetchResult *)dataSource {
-    _dataSource = dataSource;
+    _dataSource = [dataSource copy];
     [self.collectionView reloadData];
 }
 

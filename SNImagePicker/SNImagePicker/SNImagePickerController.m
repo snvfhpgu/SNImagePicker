@@ -10,6 +10,7 @@
 #import "SNNavigationController.h"
 #import "SNAlbumsViewController.h"
 #import "SNAssetsViewController.h"
+#import "UIViewController+Base.h"
 
 
 @interface SNImagePickerController ()
@@ -119,16 +120,11 @@
         
         NSString *message = LocalizeString(@"photo.authorization");
         NSString *cancel = LocalizeString(@"photo.ok");
-        
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil
-                                                       message:message
-                                                      delegate:nil
-                                             cancelButtonTitle:cancel
-                                             otherButtonTitles:nil];
-        [alert show];
+        [self showAlertWithMessage:message cancelButtonTitle:cancel];
     }
     
 }
+
 
 -(void)getFetchResult {
     PHFetchResult *result = [PHAssetCollection

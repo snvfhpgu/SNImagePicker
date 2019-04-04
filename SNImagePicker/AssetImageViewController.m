@@ -82,7 +82,7 @@
     }];
     [cell setPalyBlock:^(AssetImageCell *theCell) {
         NSIndexPath *indexPath0 = [collectionView indexPathForCell:theCell];
-        [[PHImageManager defaultManager]requestPlayerItemForVideo:_assets[indexPath0.row] options:[PHVideoRequestOptions new] resultHandler:^(AVPlayerItem * playerItem, NSDictionary *info) {
+        [[PHImageManager defaultManager]requestPlayerItemForVideo:self->_assets[indexPath0.row] options:[PHVideoRequestOptions new] resultHandler:^(AVPlayerItem * playerItem, NSDictionary *info) {
             if (playerItem) {
                 AVPlayerViewController *playerVC = [[AVPlayerViewController alloc]init];
                 playerVC.player = [AVPlayer playerWithPlayerItem:playerItem];

@@ -10,6 +10,8 @@
 #import "SNAssetsViewController.h"
 #import "SNAlbumsCell.h"
 #import "SNAlbumsDataModle.h"
+#import "SNImagePickerController.h"
+#import "UIViewController+Base.h"
 
 static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     return CGSizeMake(size.width * scale, size.height * scale);
@@ -17,7 +19,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 
 
 @interface SNAlbumsViewController ()
-@property (strong, nonatomic) NSArray *dataSource;
+@property (nonatomic, copy) NSArray *dataSource;
 @property (nonatomic, strong) UIBarButtonItem *cancelBtn;
 
 @end
@@ -92,11 +94,8 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SNAlbumsDataModle *modle = _dataSource[indexPath.row];
-//    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     SNAssetsViewController *assetsViewController = self.imagePickerController.theAssetsViewController;
-    //[[SNAssetsViewController alloc]initWithCollectionViewLayout:layout];
     assetsViewController.dataSource = modle.fetchResult;
-//    assetsViewController.imagePickerController = self.imagePickerController;
     assetsViewController.title = modle.title;
     [self.navigationController pushViewController:assetsViewController animated:true];
 }
@@ -156,12 +155,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
         NSString *message = LocalizeString(@"photo.authorization");
         NSString *cancel = LocalizeString(@"photo.ok");
 
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil
-                                                       message:message
-                                                      delegate:nil
-                                             cancelButtonTitle:cancel
-                                             otherButtonTitles:nil];
-        [alert show];
+        [self showAlertWithMessage:message cancelButtonTitle:cancel];
     }
     
 }
