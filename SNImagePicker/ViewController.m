@@ -48,7 +48,7 @@ SNLocalizeForTableName(key, @"SNImagePickerString")
     imagePickerController.pickerDelegate = self;
     imagePickerController.allowsMultipleSelection = true;
     imagePickerController.maxCountOfSelection = 9;
-    imagePickerController.cameraShowType = SNImagePickerCameraShowAtLast;
+    imagePickerController.cameraShowType = SNImagePickerCameraShowAtFirst;
     imagePickerController.mediaType      = SNImagePickerMediaTypeAny;
     [self presentViewController:imagePickerController animated:true completion:nil];
 //    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 150, 60, 60)];

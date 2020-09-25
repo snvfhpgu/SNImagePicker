@@ -2,7 +2,7 @@
 //  SNTabBar.m
 //  SNImagePicker
 //
-//  Created by Mtel on 2017/3/21.
+//  Created by SNde on 2017/3/21.
 //  Copyright © 2017年 SNde. All rights reserved.
 //
 

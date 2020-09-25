@@ -6,7 +6,7 @@
 //  Copyright © 2017年 SNde. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 @class PHFetchResult;
 @interface SNAlbumsDataModle : NSObject
 @property (nonatomic, copy) PHFetchResult *fetchResult;

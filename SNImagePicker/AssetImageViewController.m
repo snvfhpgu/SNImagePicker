@@ -1,9 +1,9 @@
 //
 //  AssetImageViewController.m
-//  QBImagePicker
+//  SNImagePicker
 //
 //  Created by SNde on 2017/2/15.
-//  Copyright © 2017年 Katsuma Tanaka. All rights reserved.
+//  Copyright © 2017年 SNde. All rights reserved.
 //
 
 #import "AssetImageViewController.h"
